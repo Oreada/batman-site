@@ -4,18 +4,28 @@
 @import "_nullstyle";
 
 body {
-	height: 100%;
+	height: 100%; //! 100vh
+	min-width: 320px; //! дописали на интенсиве
 	line-height: 1;
-	font-size: 23px;
+	font-size: 14px;
 	font-weight: 400;
-	color: #f7f7f7;
-	font-family: "Open Sans";
-	// font-family: Roboto;
-	background: #cccccc;
+	font-family: Roboto, sans-serif;
+	color: #ffffff;
+	background-color: #000000;
 
-	&._lock {
-		overflow: hidden; //! добавляем класс "_lock" в JS для запрета прокрутки при активном меню-бургере
-	}
+	// &._lock {
+	// 	overflow: hidden; //! добавляем класс "_lock" в JS для запрета прокрутки при активном меню-бургере
+	// }
+}
+
+img {
+	//! дописали на интенсиве: чтобы не ломались картинки
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: inherit;
 }
 
 // ОБОЛОЧКА
@@ -29,7 +39,6 @@ body {
 
 // ОСНОВНАЯ СЕТКА
 ._container {
-	// max-width: $mw + px;
 	max-width: 1200px;
 	padding: 0px 15px; //! это отступы безопасности
 	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
@@ -37,18 +46,18 @@ body {
 	//! Переключили контейнер с border-box на content-box после добавления паддинга, чтобы паддинг не считался частью max-width
 }
 
-._ibg {
-	position: relative;
+// ._ibg {
+// 	position: relative;
 
-	img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		object-fit: cover;
-	}
-}
+// 	img {
+// 		position: absolute;
+// 		width: 100%;
+// 		height: 100%;
+// 		top: 0;
+// 		left: 0;
+// 		object-fit: cover;
+// 	}
+// }
 //================================================================================================
 
 // Подключение header
