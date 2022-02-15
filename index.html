@@ -20,54 +20,54 @@
 
 				<div class="header__row">
 
-					<div class="header__menu menu">
+					<nav class="header__navigation navigation">
+						<ul class="navigation__list">
+							<li class="navigation__item">
+								<a class="navigation__link">Главная</a>
+							</li>
+							<li class="navigation__item">
+								<a href="video.html" class="navigation__link">Видео</a>
+							</li>
+							<li class="navigation__item">
+								<a href="photo.html" class="navigation__link">Фото</a>
+							</li>
+						</ul>
 
-						<div class="menu__icon">
-							<span></span>
-						</div>
+						<p class="header__hashtag">#TheBatman</p>
 
-						<nav class="menu__body">
-							<ul class="menu__list">
-								<li class="menu__item">
-									<a href="" class="menu__link">Главная</a>
-								</li>
-								<li class="menu__item">
-									<a href="" class="menu__link">Видео</a>
-								</li>
-								<li class="menu__item">
-									<a href="" class="menu__link">Фото</a>
-								</li>
-							</ul>
-						</nav>
+						<ul class="header__social social">
+							<li class="social__item">
+								<a href="" class="social__link">fb</a>
+							</li>
+							<li class="social__item">
+								<a href="" class="social__link">tw</a>
+							</li>
+							<li class="social__item">
+								<a href="" class="social__link">in</a>
+							</li>
+						</ul>
+					</nav>
 
-						<div class="menu__social social">
-							<div class="social__row">
-								<a class="social__icon-link">
-									<img class="social__img" src="" alt="facebook icon">
-								</a>
-								<a class="social__icon-link">
-									<img class="social__img" src="" alt="twitter icon">
-								</a>
-								<a class="social__icon-link">
-									<img class="social__img" src="" alt="instagram icon">
-								</a>
-							</div>
-						</div>
+					<div class="mute">
+						<input class="mute__checkbox" type="checkbox" id="mute">
+						<label class="mute__label" for="mute">Тут будет звук</label>
+						<!-- ! в for лэйбла записывается id того инпута, с которым хотим связать лэйбл -->
 					</div>
 
 				</div>
+
 			</div>
 		</header>
 
 
 		<main class="main">
 
+			<img class="main__logo" src="img/main-logo.png" alt="logo for movie" width="329" height="235">
 
 
-
-			<div class="main__background _ibg">
-				<img src="" alt="background">
-			</div>
+			<!-- <div class="main__background _ibg">
+				<img src="" alt="">
+			</div> -->
 		</main>
 
 
@@ -76,7 +76,22 @@
 			<div class='footer__container _container'>
 				<div class="footer__row">
 
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="#" class="footer__link">Политика конфиденциальности</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__link">Условия эксплуатации</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__link">Выбор объявлений</a>
+						</li>
+						<li class="footer__item">
+							<a href="#" class="footer__link">Настройки файлов cookie</a>
+						</li>
+					</ul>
 
+					<p class="footer__copyright">© 2022 WBEI TM & © DC</p>
 
 				</div>
 			</div>
