@@ -5,51 +5,234 @@
 }
 
 .header__row {
+	padding: 9px 0;
+	position: relative;
+
+	@media (max-width: 768px) {
+		display: flex;
+		align-items: center;
+		min-height: 50px;
+
+		padding-left: 20px; //! отодвигаем иконку бургера от края
+	}
 }
 
 .header__burger {
 	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+		width: 20px;
+		height: 12px;
+
+		background-color: transparent;
+		background-image: url(../img/menu.svg);
+	}
+}
+
+.navigation__close {
+	display: none;
+
+	@media (max-width: 768px) {
+		display: block;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		width: 16px;
+		height: 16px;
+		background-image: url(../img/close.svg);
+		background-color: transparent;
+	}
 }
 
 .header__navigation {
 }
 
 .navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-weight: 500;
+	line-height: 16px;
+	letter-spacing: 0.02em;
+
+	@media (max-width: 768px) {
+		position: fixed;
+		top: 0;
+		left: -100%; //! уводим открытое меню влево
+		bottom: 0; //! чтобы растянуть открытое меню до низа
+		width: 240px;
+		background: #260707;
+
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: stretch; //! чтобы кнопки растянулись на ширину открытого меню
+
+		padding-top: 90px;
+
+		text-align: center;
+
+		transition: left 0.3s ease-in-out;
+	}
 }
 
-.navigation__close {
-	display: none;
+.navigation_active {
+	@media (max-width: 768px) {
+		left: 0; //! показываем открытое меню
+	}
 }
 
 .navigation__list {
+	display: flex;
+	text-transform: uppercase;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 }
 
 .navigation__item {
 }
 
 .navigation__link {
+	display: block;
+	padding: 7px 14px;
+
+	@media (max-width: 768px) {
+		padding: 12px;
+	}
+}
+
+.navigation__link_active {
+	background-color: #e90000;
 }
 
 .header__hashtag {
+	padding: 7px 14px;
+	margin-right: 70px;
+
+	@media (max-width: 768px) {
+		margin-right: 0;
+		margin-bottom: 40px;
+	}
 }
 
 .header__social {
 }
 
 .social {
+	display: flex;
+	// gap: 20px; //! только для современных устройств; для всех - то, что сделала в social__item
+
+	@media (max-width: 768px) {
+		justify-content: center;
+	}
 }
 
 .social__item {
+	margin-right: 20px;
+
+	&:last-child {
+		margin-right: 0;
+	}
 }
 
 .social__link {
+	display: block;
+	//! размеры иконок в макете
+	width: 24px;
+	height: 24px;
+
+	transition: color 0.3s ease-in-out;
+	color: #ffffff;
+}
+
+.social__link_fb {
+	&:hover {
+		color: #e90000;
+	}
+}
+
+.social__link_tw {
+	&:hover {
+		color: #e90000;
+	}
+}
+
+.social__link_inst {
+	&:hover {
+		color: #e90000;
+	}
 }
 
 .mute {
+	position: absolute;
+	right: 100px;
+	top: 50%; //! верхняя граница элемента будет посередине, но не сам элемент, поэтому дописываем:
+	transform: translateY(-50%); //! поднимаем элемент (осьУ) на 50% его высоты
+
+	width: 44px;
+	height: 24px;
+	overflow: hidden;
+
+	background: #ffffff;
+	border-radius: 30px;
+
+	@media (max-width: 1024px) {
+		right: 20px;
+	}
 }
 
 .mute__checkbox {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0; //! так мы галочку не видим, но она всё так же ставится и убирается
+
+	cursor: pointer;
+	z-index: 3; //! без этого не можем кликать по красному кружку
+
+	&:checked + .mute__label::before {
+		left: -22px; //!  прячем левый кружок при checked
+	}
+
+	&:checked + .mute__label::after {
+		right: 1px; //!  показываем правый кружок при checked; 1px - отступ красного кружка от белого родителя
+	}
 }
 
 .mute__label {
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 1px; //! отступ красного кружка от белого родителя
+
+		display: block;
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		background-color: #e90000;
+		box-shadow: 0px 1px 1px rgba(69, 2, 2, 0.3);
+
+		transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	&::before {
+		left: 1px; //! отступ красного кружка от белого родителя
+
+		background-image: url(../img/mute-volume_off.svg);
+	}
+
+	&::after {
+		right: -22px; //! чтобы его пока не было видно
+
+		background-image: url(../img/mute-volume_up.svg);
+	}
 }
