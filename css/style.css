@@ -125,3 +125,11 @@ a {
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
 }
+
+.header__burger {
+  display: none;
+}
+
+.navigation__close {
+  display: none;
+}
