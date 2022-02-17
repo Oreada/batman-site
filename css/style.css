@@ -487,10 +487,18 @@ img {
   padding-right: 20px;
 }
 
+@media (max-width: 580px) {
+  .pagination {
+    min-height: 67px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+  }
+}
+
 .pagination__arrow {
   display: block;
   margin: 0 auto;
-  margin-bottom: 31px;
+  margin-bottom: 24px;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
@@ -504,6 +512,12 @@ img {
 
 .pagination__arrow:hover {
   border-top-color: #e90000;
+}
+
+@media (max-width: 580px) {
+  .pagination__arrow {
+    margin-bottom: 5px;
+  }
 }
 
 .slider-thumbs {

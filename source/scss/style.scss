@@ -44,24 +44,6 @@ img {
 	height: auto;
 }
 
-// .wrapper {
-// 	width: 100%;
-// 	height: 100%;
-// 	// min-height: 100%;  //! так не растягивался slider-main на высоту родителя main
-// 	overflow: hidden;
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: space-between;
-// }
-
-// ._container {
-// 	max-width: 1440px;
-// 	padding: 0px 15px; //! это отступы безопасности
-// 	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
-// 	box-sizing: content-box;
-// 	//! Переключили контейнер с border-box на content-box после добавления паддинга, чтобы паддинг не считался частью max-width
-// }
-
 //================================================================================================
 
 // Подключение header
@@ -149,6 +131,7 @@ img {
 }
 
 .slider-main__image {
+	//! это можно и убрать, картинка тогда будет просто по центру благодаря записи в slider-main__item
 	width: 100%; //! чтобы была на весь экран при большом разрешении
 }
 
@@ -166,16 +149,22 @@ img {
 	padding-bottom: 17px; //! расстояние от картинок до футера
 	padding-left: 20px; //! отступ безопасности при уменьшении экрана
 	padding-right: 20px; //! отступ безопасности при уменьшении экрана
+
+	@media (max-width: 580px) {
+		min-height: 67px;
+		padding-top: 0px; //! расстояние от верха до стрелочки
+		padding-bottom: 12px; //! расстояние от картинок до футера
+	}
 }
 
 .pagination__arrow {
 	display: block; //! потому что кнопка
 	margin: 0 auto; //! чтобы отцентровать
-	margin-bottom: 31px;
+	margin-bottom: 24px; //! 31рх(отступ по макету)-7рх(невидимый нижний бордер)
 
 	width: 0;
 	height: 0;
-	border-left: 7px solid transparent;
+	border-left: 7px solid transparent; //! 7рх - это половина от 14рх - ширина треугольника по макету
 	border-right: 7px solid transparent;
 	border-bottom: 7px solid transparent;
 	border-top: 7px solid #ffffff;
@@ -186,6 +175,10 @@ img {
 
 	&:hover {
 		border-top-color: #e90000;
+	}
+
+	@media (max-width: 580px) {
+		margin-bottom: 5px; //! 12px(отступ по макету)-7рх(невидимый нижний бордер)
 	}
 }
 
