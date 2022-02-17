@@ -29,6 +29,10 @@ body {
 	color: #ffffff;
 	background-color: #000000;
 
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	// &._lock {
 	// 	overflow: hidden; //! добавляем класс "_lock" в JS для запрета прокрутки при активном меню-бургере
 	// }
@@ -40,14 +44,15 @@ img {
 	height: auto;
 }
 
-.wrapper {
-	width: 100%;
-	min-height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
+// .wrapper {
+// 	width: 100%;
+// 	height: 100%;
+// 	// min-height: 100%;  //! так не растягивался slider-main на высоту родителя main
+// 	overflow: hidden;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: space-between;
+// }
 
 // ._container {
 // 	max-width: 1440px;
@@ -124,20 +129,29 @@ img {
 }
 
 .main_slider {
+	//! так всё равно не по макету - не тот центр
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
 }
+
 .slider-main {
 	height: 100%;
 }
+
 .slider-main__list {
 }
+
 .slider-main__item {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
+
 .slider-main__image {
 	width: 100%; //! чтобы была на весь экран при большом разрешении
 }
+
 .pagination {
 	position: absolute;
 	z-index: 400;
@@ -153,6 +167,7 @@ img {
 	padding-left: 20px; //! отступ безопасности при уменьшении экрана
 	padding-right: 20px; //! отступ безопасности при уменьшении экрана
 }
+
 .pagination__arrow {
 	display: block; //! потому что кнопка
 	margin: 0 auto; //! чтобы отцентровать
@@ -173,13 +188,17 @@ img {
 		border-top-color: #e90000;
 	}
 }
+
 .slider-thumbs {
 	max-width: 820px;
 }
+
 .slider-thumbs__list {
 }
+
 .slider-thumbs__item {
 }
+
 .slider-thumbs__image {
 }
 
