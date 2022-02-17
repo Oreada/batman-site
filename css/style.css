@@ -453,6 +453,10 @@ img {
   }
 }
 
+.main_slider {
+  height: calc(100% - 50px - 50px);
+}
+
 .slider-main {
   height: 100%;
 }
@@ -522,6 +526,13 @@ img {
 
 .slider-thumbs {
   max-width: 820px;
+}
+
+.slider-main__video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .footer__row {

@@ -38,6 +38,7 @@ const sliderThumbs = new Swiper('.slider-thumbs', {
 	spaceBetween: 20,  //! расстояние между картинками в пикселях
 	slidesPerView: 3,  //! количество картинок на странице
 	centeredSlides: true,  //! теперь активный слайд будет по центру (без функции ниже это работает только при начальной загрузке)
+	loopedSlides: 4,
 });
 
 sliderThumbs.on('click', (swiper) => {  //! у Swiper (из библиотеки) есть метод "on"
@@ -47,8 +48,12 @@ sliderThumbs.on('click', (swiper) => {  //! у Swiper (из библиотеки
 
 const sliderMain = new Swiper('.slider-main', {
 	loop: true,
-	thumbs: {
-		swiper: sliderThumbs,  //! так мы связываем два слайдера - большой с маленьким
-	},
+	loopedSlides: 4,
+	// thumbs: {
+	// 	swiper: sliderThumbs,  //! так мы связываем два слайдера - большой с маленьким
+	// },
 });
 
+//! сделали связь между слайдерами иначе - так полный контроль:
+sliderThumbs.controller.control = sliderMain;
+sliderMain.controller.control = sliderThumbs;

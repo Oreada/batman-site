@@ -7,10 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
 
 	<link rel="preload" href="fonts/roboto-v29-latin_cyrillic-regular.woff2	" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/roboto-v29-latin_cyrillic-500.woff2	" as="font" type="font/woff2" crossorigin>
 
+	<script defer src="js/swiper-bundle.min.js"></script>
 	<script defer src="js/script.js"></script>
 </head>
 
@@ -101,6 +103,53 @@
 
 	<main class="main main_slider">
 
+		<!-- ! запускаем слайдер ('.slider-main') в script.js -->
+		<div class="slider-main swiper">
+			<ul class="slider-main__list swiper-wrapper">
+				<li class="slider-main__item swiper-slide">
+					<video class="slider-main__video" controls poster="video/trailer01.jpg">
+						<source src="video/trailer01.webm" type="video/webm">
+						<source src="video/trailer01.mp4" type="video/mp4">
+					</video>
+				</li>
+				<li class="slider-main__item swiper-slide">
+					<video class="slider-main__video" controls poster="video/trailer02.jpg">
+						<source src="video/trailer02.webm" type="video/webm">
+						<source src="video/trailer02.mp4" type="video/mp4">
+					</video>
+				</li>
+				<li class="slider-main__item swiper-slide">
+					<video class="slider-main__video" controls poster="video/trailer03.jpg">
+						<source src="video/trailer03.webm" type="video/webm">
+						<source src="video/trailer03.mp4" type="video/mp4">
+					</video>
+				</li>
+			</ul>
+		</div>
+
+		<div class="pagination">
+
+			<button class="pagination__arrow"></button>
+
+			<!-- ! запускаем слайдер ('.slider-thumbs') в script.js -->
+			<div class="slider-thumbs swiper">
+				<ul class="slider-thumbs__list swiper-wrapper">
+					<li class="slider-thumbs__item swiper-slide">
+						<img src="video/trailer01.jpg" alt="превью видео" class="slider-thumbs__image" width="260"
+							height="100">
+					</li>
+					<li class="slider-thumbs__item swiper-slide">
+						<img src="video/trailer02.jpg" alt="превью видео" class="slider-thumbs__image" width="260"
+							height="100">
+					</li>
+					<li class="slider-thumbs__item swiper-slide">
+						<img src="video/trailer03.jpg" alt="превью видео" class="slider-thumbs__image" width="260"
+							height="100">
+					</li>
+				</ul>
+			</div>
+
+		</div>
 
 	</main>
 
