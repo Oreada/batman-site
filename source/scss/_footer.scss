@@ -5,11 +5,15 @@
 }
 
 .footer__row {
+	height: 50px;
+	position: relative;
+	z-index: 500;
 	padding: 10px 20px; //! 20px - будут видны при узком экране
 	//! чтобы отцентровать содержимое футера:
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 
 	font-size: 9px;
 	line-height: 11px;
