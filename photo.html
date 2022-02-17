@@ -4,12 +4,16 @@
 
 <head>
 	<title>Batman</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/swiper-bundle.min.css">
 
 	<link rel="preload" href="fonts/roboto-v29-latin_cyrillic-regular.woff2	" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/roboto-v29-latin_cyrillic-500.woff2	" as="font" type="font/woff2" crossorigin>
+
+	<script defer src="js/swiper-bundle.min.js"></script>
+	<script defer src="js/script.js"></script>
 </head>
 
 <body>
@@ -107,6 +111,44 @@
 
 		<main class="main main_slider">
 
+			<!-- ! запускаем слайдер ('.slider-main') в script.js -->
+			<div class="slider-main swiper">
+				<ul class="slider-main__list swiper-wrapper">
+					<li class="slider-main__item swiper-slide">
+						<img src="/photo/photo01.jpg" alt="фото" class="slider-main__image">
+					</li>
+					<li class="slider-main__item swiper-slide">
+						<img src="/photo/photo02.jpg" alt="фото" class="slider-main__image">
+					</li>
+					<li class="slider-main__item swiper-slide">
+						<img src="/photo/photo03.jpg" alt="фото" class="slider-main__image">
+					</li>
+				</ul>
+			</div>
+
+			<div class="pagination">
+
+				<button class="pagination__arrow"></button>
+
+				<!-- ! запускаем слайдер ('.slider-thumbs') в script.js -->
+				<div class="slider-thumbs swiper">
+					<ul class="slider-thumbs__list swiper-wrapper">
+						<li class="slider-thumbs__item swiper-slide">
+							<img src="/photo/photo01-thumbs.jpg" alt="превью фото" class="slider-thumbs__image"
+								width="260" height="100">
+						</li>
+						<li class="slider-thumbs__item swiper-slide">
+							<img src="/photo/photo02-thumbs.jpg" alt="превью фото" class="slider-thumbs__image"
+								width="260" height="100">
+						</li>
+						<li class="slider-thumbs__item swiper-slide">
+							<img src="/photo/photo03-thumbs.jpg" alt="превью фото" class="slider-thumbs__image"
+								width="260" height="100">
+						</li>
+					</ul>
+				</div>
+
+			</div>
 
 		</main>
 
@@ -140,9 +182,6 @@
 
 
 	</div>
-
-	<script src="js/script.js"></script>
-
 </body>
 
 </html>

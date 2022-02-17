@@ -31,4 +31,24 @@
 // });
 
 
+// Initialize Swiper -----------------------------------------------------------------------------
+
+const sliderThumbs = new Swiper('.slider-thumbs', {
+	loop: true,
+	spaceBetween: 20,  //! расстояние между картинками в пикселях
+	slidesPerView: 3,  //! количество картинок на странице
+	centeredSlides: true,  //! теперь активный слайд будет по центру (без функции ниже это работает только при начальной загрузке)
+});
+
+sliderThumbs.on('click', (swiper) => {  //! у Swiper (из библиотеки) есть метод "on"
+	swiper.slideTo(swiper.clickedIndex);
+	//! берётся индекс слайда, по которому кликнули, и передаётся в метод slideTo, чтобы сделать его активным, т.е. перенести в центр sliderThumbs
+});
+
+const sliderMain = new Swiper('.slider-main', {
+	loop: true,
+	thumbs: {
+		swiper: sliderThumbs,  //! так мы связываем два слайдера - большой с маленьким
+	},
+});
 
