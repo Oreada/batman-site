@@ -119,6 +119,8 @@ img {
 
 	//! чтобы убрать вертикальный скролл:
 	height: calc(100% - 50px - 50px); //! вся высота минус хедер и минус футер
+
+	overflow: hidden; //! так мы прячем пагинацию, которую сдвинули вниз
 }
 
 .slider-main {
@@ -150,16 +152,27 @@ img {
 
 	background-color: #000000;
 
-	padding-top: 12px; //! расстояние от верха до стрелочки
+	padding-top: 5px; //! расстояние от верха до стрелочки минус 7рх(невидимый верхний бордер)
 	padding-bottom: 17px; //! расстояние от картинок до футера
 	padding-left: 20px; //! отступ безопасности при уменьшении экрана
 	padding-right: 20px; //! отступ безопасности при уменьшении экрана
+
+	//! уводим вниз весь блок пагинации на всю его высоту по оси У минус 20рх, чтобы была видна стрелка
+	transform: translateY(calc(100% - 20px));
+	transition: transform 0.5s ease-in-out;
 
 	@media (max-width: 580px) {
 		min-height: 67px;
 		padding-top: 0px; //! расстояние от верха до стрелочки
 		padding-bottom: 12px; //! расстояние от картинок до футера
 	}
+}
+
+.pagination_active {
+	//! добавляется при нажатии стрелочки (см. JS)
+	transform: translateY(0); //! поднимаем пагинацию назад на её место - чтобы её стало видно
+
+	padding-top: 12px; //! нужно увеличить, т.к. стрелка меняет направление и уходит невидимый верхний бордер
 }
 
 .pagination__arrow {
@@ -171,20 +184,33 @@ img {
 	height: 0;
 	border-left: 7px solid transparent; //! 7рх - это половина от 14рх - ширина треугольника по макету
 	border-right: 7px solid transparent;
-	border-bottom: 7px solid transparent;
-	border-top: 7px solid #ffffff;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid #ffffff;
 
 	background-color: transparent; //! потому что он у кнопки по умолчанию белый
 
 	transition: border-color 0.3s ease-in-out;
 
-	&:hover {
+	.pagination_active &:hover {
 		border-top-color: #e90000;
+		border-bottom-color: transparent;
+	}
+
+	&:hover {
+		border-bottom-color: #e90000;
+		// border-top-color: transparent;
 	}
 
 	@media (max-width: 580px) {
 		margin-bottom: 5px; //! 12px(отступ по макету)-7рх(невидимый нижний бордер)
 	}
+}
+
+//! эта запись означает, что когда будет класс pagination_active, то у pagination__arrow будут следующие параметры:
+.pagination_active .pagination__arrow {
+	border-bottom: 7px solid transparent;
+	border-top: 7px solid #ffffff;
+	//! так стрелка будет смотреть в другую сторону
 }
 
 .slider-thumbs {

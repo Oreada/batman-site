@@ -79,7 +79,7 @@
 
 .navigation_active {
 	@media (max-width: 768px) {
-		left: 0; //! показываем открытое меню, когда добавляется .navigation_active
+		left: 0; //! показываем открытое меню, когда добавляется .navigation_active (см. JS)
 
 		// transition: left 0.3s ease-in-out 0s;
 	}

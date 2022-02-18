@@ -69,6 +69,14 @@ try {
 		}
 	});
 
+	//! работаем со стрелкой пагинации:
+	const pagination = document.querySelector('.pagination');
+	const paginationButton = document.querySelector('.pagination__arrow');
+
+	paginationButton.addEventListener('click', function () {
+		pagination.classList.toggle('pagination_active');
+	});
+
 } catch {
 	console.log("There is no slider on this page");
 };
