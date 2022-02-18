@@ -444,6 +444,7 @@ img {
 @media (max-width: 768px) {
   .main__logo {
     width: 230px;
+    height: auto;
   }
 }
 
