@@ -33,27 +33,75 @@
 
 // Initialize Swiper -----------------------------------------------------------------------------
 
-const sliderThumbs = new Swiper('.slider-thumbs', {
-	loop: true,
-	spaceBetween: 20,  //! расстояние между картинками в пикселях
-	slidesPerView: 3,  //! количество картинок на странице
-	centeredSlides: true,  //! теперь активный слайд будет по центру (без функции ниже это работает только при начальной загрузке)
-	loopedSlides: 4,
+//! т.к. в index.html нет слайдера, то вылезает ошибка, чтобы её не было применяем try-catch:
+try {
+	const sliderThumbs = new Swiper('.slider-thumbs', {
+		loop: true,
+		spaceBetween: 20,  //! расстояние между картинками в пикселях
+		slidesPerView: 3,  //! количество картинок на странице
+		centeredSlides: true,  //! теперь активный слайд будет по центру (без функции ниже это работает только при начальной загрузке)
+		loopedSlides: 4,
+	});
+
+	sliderThumbs.on('click', (swiper) => {  //! у Swiper (из библиотеки) есть метод "on"
+		swiper.slideTo(swiper.clickedIndex);
+		//! берётся индекс слайда, по которому кликнули, и передаётся в метод slideTo, чтобы сделать его активным, т.е. перенести в центр sliderThumbs
+	});
+
+	const sliderMain = new Swiper('.slider-main', {
+		loop: true,
+		loopedSlides: 4,
+		// thumbs: {
+		// 	swiper: sliderThumbs,  //! так мы связываем два слайдера - большой с маленьким
+		// },
+	});
+
+	//! сделали связь между слайдерами иначе - так полный контроль:
+	sliderThumbs.controller.control = sliderMain;
+	sliderMain.controller.control = sliderThumbs;
+
+	//! останавливаем видео при смене слайда:
+	const videos = document.querySelectorAll('video');  //! без точки, т.к. ищем по тегу, а не по классу
+
+	sliderMain.on('slideChange', () => {
+		for (let video of videos) {
+			video.pause();
+		}
+	});
+
+} catch {
+	console.log("There is no slider on this page");
+};
+
+// menu burger ------------------------------------------------------------------------------------------
+
+const burger = document.querySelector('.header__burger');
+const navigation = document.querySelector('.navigation');
+
+burger.addEventListener("click", function () {
+	navigation.classList.add("navigation_active");
 });
 
-sliderThumbs.on('click', (swiper) => {  //! у Swiper (из библиотеки) есть метод "on"
-	swiper.slideTo(swiper.clickedIndex);
-	//! берётся индекс слайда, по которому кликнули, и передаётся в метод slideTo, чтобы сделать его активным, т.е. перенести в центр sliderThumbs
+const cross = document.querySelector('.navigation__close');
+
+cross.addEventListener("click", function () {
+	navigation.classList.remove("navigation_active");
 });
 
-const sliderMain = new Swiper('.slider-main', {
-	loop: true,
-	loopedSlides: 4,
-	// thumbs: {
-	// 	swiper: sliderThumbs,  //! так мы связываем два слайдера - большой с маленьким
-	// },
+// music ------------------------------------------------------------------------------------------------
+
+const mute = document.querySelector('.mute__checkbox');
+const audio = new Audio('audio/waterTower.mp3');  //! это встроенный конструктор, для него не нужна библиотека, как для свайпера
+
+mute.addEventListener("change", function () {
+	if (mute.checked) {
+		audio.play();
+	} else {
+		audio.pause();
+	};
 });
 
-//! сделали связь между слайдерами иначе - так полный контроль:
-sliderThumbs.controller.control = sliderMain;
-sliderMain.controller.control = sliderThumbs;
+
+
+
+

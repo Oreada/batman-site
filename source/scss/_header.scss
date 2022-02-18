@@ -51,6 +51,8 @@
 	justify-content: center;
 	align-items: center;
 
+	z-index: 600; //! больше, чем у футера, чтобы перекрывать его
+
 	font-weight: 500;
 	line-height: 16px;
 	letter-spacing: 0.02em;
@@ -71,13 +73,15 @@
 
 		text-align: center;
 
-		transition: left 0.3s ease-in-out;
+		transition: left 0.3s ease-in-out 0s;
 	}
 }
 
 .navigation_active {
 	@media (max-width: 768px) {
-		left: 0; //! показываем открытое меню
+		left: 0; //! показываем открытое меню, когда добавляется .navigation_active
+
+		// transition: left 0.3s ease-in-out 0s;
 	}
 }
 
