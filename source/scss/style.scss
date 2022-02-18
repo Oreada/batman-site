@@ -71,6 +71,8 @@ img {
 
 	padding-left: 180px; //! отступ логотипа от края
 
+	image-rendering: optimizeQuality; //! убираем баг с картинкой лого в Firefox
+
 	@media (max-width: 1024px) {
 		padding-left: 60px;
 	}
