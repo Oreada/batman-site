@@ -193,14 +193,14 @@ img {
 
 	transition: border-color 0.3s ease-in-out;
 
-	.pagination_active &:hover {
-		border-top-color: #e90000;
-		border-bottom-color: transparent;
-	}
-
 	&:hover {
 		border-bottom-color: #e90000;
 		// border-top-color: transparent;
+	}
+
+	.pagination_active &:hover {
+		border-top-color: #e90000;
+		border-bottom-color: transparent;
 	}
 
 	@media (max-width: 580px) {

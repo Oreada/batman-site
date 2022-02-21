@@ -529,13 +529,13 @@ img {
   transition: border-color 0.3s ease-in-out;
 }
 
+.pagination__arrow:hover {
+  border-bottom-color: #e90000;
+}
+
 .pagination_active .pagination__arrow:hover {
   border-top-color: #e90000;
   border-bottom-color: transparent;
-}
-
-.pagination__arrow:hover {
-  border-bottom-color: #e90000;
 }
 
 @media (max-width: 580px) {
